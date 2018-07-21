@@ -1,14 +1,13 @@
 package com.alsaud.dpsapp.service.dto;
 
 import com.alsaud.dpsapp.config.Constants;
-
 import com.alsaud.dpsapp.domain.Authority;
 import com.alsaud.dpsapp.domain.User;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-
-import javax.validation.constraints.*;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.Instant;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -38,7 +37,7 @@ public class UserDTO {
     @Size(max = 256)
     private String imageUrl;
 
-    private boolean activated = false;
+    private boolean activated = true;
 
     @Size(min = 2, max = 6)
     private String langKey;
