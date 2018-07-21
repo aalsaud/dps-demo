@@ -1,0 +1,15 @@
+version: '2'
+services:
+    dps_app-app:
+        image: dps_app
+        environment:
+            # - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://dps_app-postgresql:5432/dps_app
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    dps_app-postgresql:
+        extends:
+            file: postgresql.yml
+            service: dps_app-postgresql
